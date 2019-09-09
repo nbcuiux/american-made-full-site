@@ -1,0 +1,123 @@
+// Import
+
+@import 'mixins';
+@import 'fonts';
+@import 'typography';
+@import 'colors';
+@import 'motion';
+
+@import 'buttons';
+
+@import 'nav';
+
+body {
+  margin: 0;
+}
+
+@keyframes page-transition {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-200%);
+  }
+}
+
+.page {
+  &:after {
+    content: '';
+    z-index: 9998;
+    background-color: _palette($theme, brand-black);  
+    position: fixed;
+    top: 100%;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    transform: translateY(0);
+    // transition: transform 1.2s cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  &.page--transitioning {
+    &:after {
+      animation: page-transition (_animation(duration) * 2.5) _animation(easing);
+    }
+  }
+}
+
+.scroll-content {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+}
+
+
+.panel {
+  @include display-flex();
+  @include align-items(center);
+  @include justify-content(space-around);
+  @include flex-direction(column);
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  color: lighten(_palette($theme, brand-ivory), 1%);
+  text-shadow: 2px 1px 0 rgba(_palette($theme, brand-black),0.8);
+
+  .content {
+    width: 100%;
+    // min-height: 100px;
+    z-index: 3;
+    text-align: center;
+
+    h1 {
+      @include headingJumbo1();
+      &.title2 {
+        @include headingJumbo2();
+      }
+      &.title3 {
+        @include headingJumbo3();
+      }
+    }
+
+    h2 {
+      @include headingJumbo1();
+    }
+
+    .section--background-video {
+      position: absolute;
+      width: 100%;
+      left: 0;
+      top: 0;
+      z-index: -1;
+    }
+  }
+
+  &--brand-red {
+    background-color: _palette($theme, brand-red);
+  }
+  &--brand-blue {
+    background-color: _palette($theme, brand-blue);
+  }
+  &--brand-black {
+    background-color: _palette($theme, brand-black);  
+  }
+  &--brand-ivory {
+    color: _palette($theme, brand-black);
+    background-color: _palette($theme, brand-ivory);
+    text-shadow: 2px 1px 0 rgba(_palette($theme, brand-ivory),0.9);
+  }
+  &--image {
+    background-size: cover;
+    background-position: center top;
+
+    &.image-1 {
+      // min-height: 200vh;
+      background-image: url('../images/AA59_D015_00155_RV2_S_MD.JPG');
+    }
+    &.image-2 {
+      background-image: url('../images/AA59_D042_00302R_CROP_MD.JPG');
+    }
+  }
+
+}
+
+

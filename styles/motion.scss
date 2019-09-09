@@ -1,0 +1,16 @@
+@function val($map, $keys...) {
+  @each $key in $keys {
+    $map: map-get($map, $key);
+  }
+  @return $map;
+}
+
+@function _animation($keys...) {
+  @return val($animation, $keys...);
+}
+
+$animation: (
+  easing: cubic-bezier(0.215, 0.61, 0.355, 1),
+  duration: 0.5s
+);
+

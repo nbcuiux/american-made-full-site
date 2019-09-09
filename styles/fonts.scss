@@ -1,0 +1,41 @@
+$font-primary: 'Compacta BT', Helvetica, Arial, sans-serif;
+$font-secondary: 'Century Gothic', Helvetica, Arial, sans-serif;
+
+$compactaBtPath: '../fonts/compacta-bt/Compacta-BT-';
+
+@font-face {
+	font-family: 'Compacta BT';
+	src: url(#{$compactaBtPath + 'Light.ttf'}) format('truetype');
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Compacta BT';
+	src: url(#{$compactaBtPath + 'Roman.ttf'}) format('truetype');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Compacta BT';
+	src: url(#{$compactaBtPath + 'Black.ttf'}) format('truetype');
+	font-weight: bold;
+	font-style: normal;
+}
+
+$centuryGothicPath: '../fonts/century-gothic/Century-Gothic-';
+
+@font-face {
+	font-family: 'Century Gothic';
+	src: url(#{$centuryGothicPath + 'Regular.ttf'}) format('truetype');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Century Gothic';
+	src: url(#{$centuryGothicPath + 'Bold.ttf'}) format('truetype');
+	font-weight: bold;
+	font-style: normal;
+}

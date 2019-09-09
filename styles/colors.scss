@@ -1,0 +1,21 @@
+@function val($map, $keys...) {
+  @each $key in $keys {
+    $map: map-get($map, $key);
+  }
+  @return $map;
+}
+
+@function _palette($keys...) {
+  @return val($palette, $keys...);
+}
+
+$palette: (
+  theme1: (
+    brand-red: #8F1111,
+    brand-blue: #16375A,
+    brand-black: #000000,
+    brand-ivory: #FFFEF8
+  )
+);
+
+$theme: 'theme1';
